@@ -32,27 +32,27 @@ class AdminAuth
         $url = $request->route()->getName();
 
         //验证权限
-//        if (!in_array($url, $this->authExcept, true))
-//        {
-//            //验证是否登录
-//            $isLogin = AuthFacade::isLogin();
-//
-//            if (!$isLogin) {
-//                error('未登录', 'admin.auth.login');
-//            }
-//
-//            $loginUser = session(LOGIN_USER);
-//
-//            //登录后，验证有无权限
-//            if ($loginUser['id'] !== 1 && !$this->authCheck($url,$loginUser)) {
-//                error('无权限', $request->isMethod('get') ? null : URL_CURRENT);
-//            }
-//
-//        }
-//
-//        if ((int)$request->input('check_auth') === 1) {
-//            success();
-//        }
+        if (!in_array($url, $this->authExcept, true))
+        {
+            //验证是否登录
+            $isLogin = AuthFacade::isLogin();
+
+            if (!$isLogin) {
+                error('未登录', 'admin.auth.login');
+            }
+
+            $loginUser = session(LOGIN_USER);
+
+            //登录后，验证有无权限
+            if ($loginUser['id'] !== 1 && !$this->authCheck($url,$loginUser)) {
+                error('无权限', $request->isMethod('get') ? null : URL_CURRENT);
+            }
+
+        }
+
+        if ((int)$request->input('check_auth') === 1) {
+            success();
+        }
 
         return $next($request);
     }

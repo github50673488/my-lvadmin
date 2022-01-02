@@ -164,6 +164,7 @@ if (!function_exists('result')) {
 
         $data = empty($data) ? [] : $data;
 
+        // 比如登录验证未过，执行error 由这里重定向
         throw new HttpResponseException(redirect()->route($url,$data)->with([$code ? 'success_message' : 'error_message' => $msg, 'url' => route($url)]));
 
     }

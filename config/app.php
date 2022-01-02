@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // 在这里增加了Provider
         App\Providers\AdminRepositoryServiceProvider::class,
 
     ],
