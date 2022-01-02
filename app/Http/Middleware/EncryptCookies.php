@@ -12,6 +12,7 @@ class EncryptCookies extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        // 这个不加密？没有这一行，分页出错
+        'admin_per_page'
     ];
 }

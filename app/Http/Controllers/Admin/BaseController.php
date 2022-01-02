@@ -42,14 +42,14 @@ class BaseController extends Controller
         $menu = app()->make(AdminMenuInterface::class)->findByRouteName($url);
         $menu && $baseVar['admin']['title'] = $menu->name;
 
-//        AuthFacade::adminLog($url,$loginUser,$menu);
-//
-//        if ('admin.auth.login' !== $url
-//            && !request()->pjax()
-//            && session()->has(LOGIN_USER))
-//        {
-//            $baseVar['admin']['menu'] = $this->getLeftMenu($url,$loginUser);
-//        }
+        AuthFacade::adminLog($url,$loginUser,$menu);
+
+        if ('admin.auth.login' !== $url
+            && !request()->pjax()
+            && session()->has(LOGIN_USER))
+        {
+            $baseVar['admin']['menu'] = $this->getLeftMenu($url,$loginUser);
+        }
 
         //全局通用变量
         view()->share('admin',$baseVar['admin']);

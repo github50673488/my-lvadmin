@@ -43,8 +43,8 @@ class AdminRepositoryServiceProvider extends ServiceProvider
 //        $this->app->singleton(AdminUserInterface::class,AdminUserRepository::class);
 //        $this->app->singleton(AdminRoleInterface::class,AdminRoleRepository::class);
 //        $this->app->singleton(AdminLogInterface::class,AdminLogRepository::class);
-//        $this->app->singleton(UserInterface::class,UserRepository::class);
-//        $this->app->singleton(UserLevelInterface::class,UserLevelRepository::class);
+        $this->app->singleton(UserInterface::class,UserRepository::class);
+        $this->app->singleton(UserLevelInterface::class,UserLevelRepository::class);
 //        $this->app->singleton(SettingInterface::class,SettingRepository::class);
 //        $this->app->singleton(SettingGroupInterface::class,SettingGroupRepository::class);
     }
